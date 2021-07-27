@@ -8,6 +8,8 @@ import 'package:mysample/widgets/implict_animation_widget/implict_animation_widg
 import 'package:mysample/widgets/navigation_rail/navigation_rail.dart';
 import 'package:mysample/widgets/staggered_animation/staggered_animation.dart';
 import 'package:mysample/widgets/stopwatch/stopwatch.dart';
+import 'package:mysample/widgets/todo/todo.dart';
+import 'package:mysample/widgets/transform/transform.dart';
 import 'package:mysample/widgets/tween_chaining/tween_chaining.dart';
 
 void main() => runApp(const MyApp());
@@ -45,7 +47,11 @@ class MyApp extends StatelessWidget {
                   title: '3.Staggered Animation',
                   widget: MyStaggeredAnimation()),
               ButtonAndWidget(
-                  title: '4.Tween chaining', widget: MyTweenChaining())
+                  title: '4.Tween chaining', widget: MyTweenChaining()),
+              ButtonAndWidget(
+                  title: '5.Transform ( translate,scale & rotate )',
+                  widget: MyTransform()),
+              ButtonAndWidget(title: '🔥Real World Example🔥', widget: MyToDo())
             ],
           ),
         ),
