@@ -7,7 +7,55 @@ class MyToDo extends StatefulWidget {
   _MyToDoState createState() => _MyToDoState();
 }
 
-class _MyToDoState extends State<MyToDo> {
+class _MyToDoState extends State<MyToDo> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  late Animation _profilePictureAnimation;
+  late Animation _contentAnimation;
+  late Animation _listAnimation;
+  late Animation _fabAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 4));
+
+// iconSize goes from 0.0 to 50.0
+    _profilePictureAnimation = Tween(begin: 0.0, end: 50.0).animate(
+        CurvedAnimation(
+            parent: _controller,
+            curve: Interval(0.0, 0.20, curve: Curves.easeOut)));
+
+// fontSize goes from 0.0 to 34.0
+    _contentAnimation = Tween(begin: 0.0, end: 34.0).animate(CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.20, 0.40, curve: Curves.easeOut)));
+
+// Opacity goes from 0.0 to 1.0
+    _listAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.40, 0.75, curve: Curves.easeOut)));
+
+// Fab Size goes from size * 0.0 to size * 1.0
+    _fabAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.75, 1.0, curve: Curves.easeOut)));
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +67,7 @@ class _MyToDoState extends State<MyToDo> {
             icon: Icon(Icons.supervised_user_circle),
             color: Colors.black,
             onPressed: () {},
-            iconSize: 50.0,
+            iconSize: _profilePictureAnimation.value,
           ),
         ],
         elevation: 0.0,
@@ -32,7 +80,8 @@ class _MyToDoState extends State<MyToDo> {
           ),
           Text(
             "Good Morning",
-            style: TextStyle(fontSize: 34.0, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontSize: _contentAnimation.value, fontWeight: FontWeight.w600),
           ),
           SizedBox(
             height: 18.0,
@@ -42,21 +91,27 @@ class _MyToDoState extends State<MyToDo> {
             style: TextStyle(fontSize: 18.0),
           ),
           Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, position) {
-                return CheckboxListTile(
-                  title: Text("This is item $position"),
-                  value: true,
-                  onChanged: (val) {},
-                );
-              },
+            child: Opacity(
+              opacity: _listAnimation.value,
+              child: ListView.builder(
+                itemBuilder: (context, position) {
+                  return CheckboxListTile(
+                    title: Text("This is item $position"),
+                    value: true,
+                    onChanged: (val) {},
+                  );
+                },
+              ),
             ),
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+      floatingActionButton: Transform.scale(
+        scale: _fabAnimation.value,
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
