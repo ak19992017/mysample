@@ -7,6 +7,7 @@ import 'package:mysample/widgets/gradient/gradient.dart';
 import 'package:mysample/widgets/implict_animation_widget/implict_animation_widget.dart';
 import 'package:mysample/widgets/navigation_rail/navigation_rail.dart';
 import 'package:mysample/widgets/staggered_animation/staggered_animation.dart';
+import 'package:mysample/widgets/staggered_menu_animation/staggered_menu_animation.dart';
 import 'package:mysample/widgets/stopwatch/stopwatch.dart';
 import 'package:mysample/widgets/todo/todo.dart';
 import 'package:mysample/widgets/transform/transform.dart';
@@ -51,7 +52,11 @@ class MyApp extends StatelessWidget {
               ButtonAndWidget(
                   title: '5.Transform ( translate,scale & rotate )',
                   widget: MyTransform()),
-              ButtonAndWidget(title: '🔥Real World Example🔥', widget: MyToDo())
+              ButtonAndWidget(
+                  title: '🔥Real World Example🔥', widget: MyToDo()),
+              ButtonAndWidget(
+                  title: 'Staggered menu animation',
+                  widget: MyStaggeredMenuAnimation()),
             ],
           ),
         ),
