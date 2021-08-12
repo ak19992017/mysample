@@ -1,5 +1,3 @@
-# My Flutter learning journey with tutorials and projects.
-
 ## Resources link
 
 - [Bottom Navigation bar](https://www.youtube.com/watch?v=xoKqQjSDZ60&t=274s)
