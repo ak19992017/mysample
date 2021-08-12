@@ -1,5 +1,7 @@
-## :red_circle:Demo link  <br>
-[Click Here](https://myflutter.codemagic.app/)
+## :v:Demo link
+
+:red_circle:[Click Here](https://myflutter.codemagic.app/)
+
     
 ## :v:Resources link
 
