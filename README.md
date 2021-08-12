@@ -8,9 +8,8 @@
 - [FloatingActionButton](https://proandroiddev.com/a-deep-dive-into-floatingactionbutton-in-flutter-bf95bee11627)
 - [Basic Animation](https://flexiple.com/app/basics-of-flutter-animations/?&url=180)
 - [Implict Animated Widget](https://flexiple.com/app/advanced-flutter-animations/)
-- [Staggered Animation](https://flexiple.com/app/advanced-flutter-animations/)
-
-    new good stagered animation tutorial   https://flutter.dev/docs/development/ui/animations/staggered-animations
+- [Staggered Animation Simple example](https://flexiple.com/app/advanced-flutter-animations/)
+- [Staggered Animation Good example](https://flutter.dev/docs/development/ui/animations/staggered-animations)
 - [Tween chaining](https://flexiple.com/app/advanced-flutter-animations/)
 - [Transform](https://flexiple.com/app/advanced-flutter-animations/)
 - 
