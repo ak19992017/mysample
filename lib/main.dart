@@ -10,6 +10,8 @@ import 'package:mysample/widgets/staggered_animation/staggered_animation.dart';
 import 'package:mysample/widgets/staggered_menu_animation/staggered_menu_animation.dart';
 import 'package:mysample/widgets/stopwatch/stopwatch.dart';
 import 'package:mysample/widgets/todo/todo.dart';
+
+import 'package:mysample/widgets/todo_ui_animation/todo_ui_animation.dart';
 import 'package:mysample/widgets/transform/transform.dart';
 import 'package:mysample/widgets/tween_chaining/tween_chaining.dart';
 
@@ -53,10 +55,11 @@ class MyApp extends StatelessWidget {
                   title: '5.Transform ( translate,scale & rotate )',
                   widget: MyTransform()),
               ButtonAndWidget(
-                  title: '🔥Real World Example🔥', widget: MyToDo()),
+                  title: '🔥Real World Example🔥', widget: MyToDoUiAnimation()),
               ButtonAndWidget(
                   title: 'Staggered menu animation',
                   widget: MyStaggeredMenuAnimation()),
+              ButtonAndWidget(title: '🔥 Todo app 🔥', widget: MyToDo())
             ],
           ),
         ),

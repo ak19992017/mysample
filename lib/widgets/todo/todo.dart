@@ -7,112 +7,84 @@ class MyToDo extends StatefulWidget {
   _MyToDoState createState() => _MyToDoState();
 }
 
-class _MyToDoState extends State<MyToDo> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+class _MyToDoState extends State<MyToDo> {
+  // save data
+  final List<String> _todoList = [];
+  // text field
+  final TextEditingController _textFieldController = TextEditingController();
 
-  late Animation _profilePictureAnimation;
-  late Animation _contentAnimation;
-  late Animation _listAnimation;
-  late Animation _fabAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 4));
-
-// iconSize goes from 0.0 to 50.0
-    _profilePictureAnimation = Tween(begin: 0.0, end: 50.0).animate(
-        CurvedAnimation(
-            parent: _controller,
-            curve: Interval(0.0, 0.20, curve: Curves.easeOut)));
-
-// fontSize goes from 0.0 to 34.0
-    _contentAnimation = Tween(begin: 0.0, end: 34.0).animate(CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.20, 0.40, curve: Curves.easeOut)));
-
-// Opacity goes from 0.0 to 1.0
-    _listAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.40, 0.75, curve: Curves.easeOut)));
-
-// Fab Size goes from size * 0.0 to size * 1.0
-    _fabAnimation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.75, 1.0, curve: Curves.easeOut)));
-
-    _controller.addListener(() {
-      setState(() {});
+  void _addTodoItem(String title) {
+    // Wrapping it inside a set state will notify
+    // the app that the state has changed
+    setState(() {
+      _todoList.add(title);
     });
-
-    _controller.forward();
+    _textFieldController.clear();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  // this Generate list of item widgets
+  Widget _buildTodoItem(String title) {
+    return ListTile(title: Text(title));
+  }
+
+  // iterates through our todo list title
+  List<Widget> _getItems() {
+    final List<Widget> _todoWidgets = <Widget>[];
+    for (String title in _todoList) {
+      _todoWidgets.add(_buildTodoItem(title));
+    }
+    return _todoWidgets;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.supervised_user_circle),
-            color: Colors.black,
-            onPressed: () {},
-            iconSize: _profilePictureAnimation.value,
-          ),
-        ],
-        elevation: 0.0,
+        title: const Text('To-Do List'),
+        centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 16.0,
+      body: ListView(children: _getItems()),
+      // add items to the to-do list
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _displayDialog(context),
+        tooltip: 'Add Item',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  // display a dialog for the user to enter items
+  Future _displayDialog(BuildContext context) async {
+    // alter the app state to show a dialog
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Add a task to your list'),
+          content: TextField(
+            controller: _textFieldController,
+            decoration: const InputDecoration(hintText: 'Enter task here'),
           ),
-          Text(
-            "Good Morning",
-            style: TextStyle(
-                fontSize: _contentAnimation.value, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 18.0,
-          ),
-          Text(
-            "Here are your plans for today",
-            style: TextStyle(fontSize: 18.0),
-          ),
-          Expanded(
-            child: Opacity(
-              opacity: _listAnimation.value,
-              child: ListView.builder(
-                itemBuilder: (context, position) {
-                  return CheckboxListTile(
-                    title: Text("This is item $position"),
-                    value: true,
-                    onChanged: (val) {},
-                  );
-                },
-              ),
+          actions: <Widget>[
+            // add button
+            TextButton(
+              child: const Text('ADD'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _addTodoItem(_textFieldController.text);
+              },
             ),
-          )
-        ],
-      ),
-      floatingActionButton: Transform.scale(
-        scale: _fabAnimation.value,
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ),
-      ),
+            // Cancel button
+            TextButton(
+              child: const Text('CANCEL'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                // _textFieldController.clear();
+              },
+            )
+          ],
+        );
+      },
     );
   }
 }
