@@ -15,6 +15,8 @@ import 'package:mysample/widgets/todo_ui_animation/todo_ui_animation.dart';
 import 'package:mysample/widgets/transform/transform.dart';
 import 'package:mysample/widgets/tween_chaining/tween_chaining.dart';
 
+import 'widgets/card_widget/card_widget.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -59,7 +61,8 @@ class MyApp extends StatelessWidget {
               ButtonAndWidget(
                   title: 'Staggered menu animation',
                   widget: MyStaggeredMenuAnimation()),
-              ButtonAndWidget(title: '🔥 Todo app 🔥', widget: MyToDo())
+              ButtonAndWidget(title: '🔥 Todo app 🔥', widget: MyToDo()),
+              ButtonAndWidget(title: 'Card widget', widget: MyCardWidget())
             ],
           ),
         ),
