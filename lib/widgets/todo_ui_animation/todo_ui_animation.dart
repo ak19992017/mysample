@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyToDoUiAnimation extends StatefulWidget {
   const MyToDoUiAnimation({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class _MyToDoUiAnimationState extends State<MyToDoUiAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(

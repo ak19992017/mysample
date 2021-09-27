@@ -6,6 +6,7 @@ import 'package:mysample/widgets/floating_action_button/floating_action_button.d
 import 'package:mysample/widgets/gradient/gradient.dart';
 import 'package:mysample/widgets/implict_animation_widget/implict_animation_widget.dart';
 import 'package:mysample/widgets/navigation_rail/navigation_rail.dart';
+import 'package:mysample/widgets/show_hide_on_scroll/show_hide_on_scroll.dart';
 import 'package:mysample/widgets/staggered_animation/staggered_animation.dart';
 import 'package:mysample/widgets/staggered_menu_animation/staggered_menu_animation.dart';
 import 'package:mysample/widgets/stopwatch/stopwatch.dart';
@@ -62,7 +63,9 @@ class MyApp extends StatelessWidget {
                   title: 'Staggered menu animation',
                   widget: MyStaggeredMenuAnimation()),
               ButtonAndWidget(title: '🔥 Todo app 🔥', widget: MyToDo()),
-              ButtonAndWidget(title: 'Card widget', widget: MyCardWidget())
+              ButtonAndWidget(title: 'Card widget', widget: MyCardWidget()),
+              ButtonAndWidget(
+                  title: 'Show/Hide on Scroll', widget: ShowHideOnScroll()),
             ],
           ),
         ),
