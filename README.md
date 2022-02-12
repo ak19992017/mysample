@@ -17,5 +17,5 @@
 :x: [Staggered Animation Good example](https://flutter.dev/docs/development/ui/animations/staggered-animations) <br>
 :white_check_mark: [Tween chaining](https://flexiple.com/app/advanced-flutter-animations/) <br>
 :white_check_mark: [Transform](https://flexiple.com/app/advanced-flutter-animations/) <br>
-
+:white_check_mark: [Show/HIde on Scroll](https://www.youtube.com/watch?v=xzPXqQ-Pe2g) <br>
 
