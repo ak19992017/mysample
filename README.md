@@ -1,8 +1,7 @@
 ## :v:Demo link
 
-:red_circle:[Click Here](https://myflutter.codemagic.app/)
+:red_circle:[Click Here](https://flutter-journey.codemagic.app/)
 
-    
 ## :v:Resources link
 
 :white_check_mark: [Bottom Navigation bar](https://www.youtube.com/watch?v=xoKqQjSDZ60&t=274s) <br>
@@ -18,4 +17,3 @@
 :white_check_mark: [Tween chaining](https://flexiple.com/app/advanced-flutter-animations/) <br>
 :white_check_mark: [Transform](https://flexiple.com/app/advanced-flutter-animations/) <br>
 :white_check_mark: [Show/HIde on Scroll](https://www.youtube.com/watch?v=xzPXqQ-Pe2g) <br>
-

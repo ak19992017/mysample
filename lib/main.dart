@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mysample/widgets/animated_fab/animated_fab.dart';
 import 'package:mysample/widgets/basic_animation/basic_animation.dart';
 import 'package:mysample/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:mysample/widgets/calender/calender.dart';
@@ -68,8 +69,13 @@ class MyApp extends StatelessWidget {
               ButtonAndWidget(
                   title: 'Show/Hide on Scroll', widget: ShowHideOnScroll()),
               ButtonAndWidget(
-                  title: 'Date Time DateTime DateTimerange Picker',
-                  widget: MyCalender()),
+                title: 'Date Time DateTime DateTimerange Picker',
+                widget: MyCalender(),
+              ),
+              ButtonAndWidget(
+                title: 'Animated FAB',
+                widget: AnimatedFAB(),
+              ),
             ],
           ),
         ),
