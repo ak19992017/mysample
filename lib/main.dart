@@ -12,6 +12,7 @@ import 'package:mysample/widgets/show_hide_on_scroll/show_hide_on_scroll.dart';
 import 'package:mysample/widgets/staggered_animation/staggered_animation.dart';
 import 'package:mysample/widgets/staggered_menu_animation/staggered_menu_animation.dart';
 import 'package:mysample/widgets/stopwatch/stopwatch.dart';
+import 'package:mysample/widgets/tabbar/my_tab_demo.dart';
 import 'package:mysample/widgets/todo/todo.dart';
 
 import 'package:mysample/widgets/todo_ui_animation/todo_ui_animation.dart';
@@ -75,6 +76,10 @@ class MyApp extends StatelessWidget {
               ButtonAndWidget(
                 title: 'Animated FAB',
                 widget: AnimatedFAB(),
+              ),
+              ButtonAndWidget(
+                title: 'Tab demo',
+                widget: MyTabDemo(),
               ),
             ],
           ),
